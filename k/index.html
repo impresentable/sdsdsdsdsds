@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lucas Tiger - IDF Veteran | 20 Years of Service</title>
+  <style>
+    :root {
+      --blue: #0038b8;
+      --light-blue: #0055dd;
+      --very-light-blue: #e6f0ff;
+      --white: #ffffff;
+      --dark-blue: #001f6b;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--very-light-blue);
+      background-image: 
+        repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(0,56,184,0.05) 40px, rgba(0,56,184,0.05) 80px),
+        url('https://upload.wikimedia.org/wikipedia/commons/d/d4/Flag_of_Israel.svg');
+      background-size: auto 100px, 180px;
+      background-repeat: repeat, repeat;
+      min-height: 100vh;
+      padding: 20px;
+      color: #111;
+    }
+    .card {
+      width: 100%;
+      max-width: 980px;
+      margin: 0 auto;
+      background: white;
+      border: 14px solid var(--blue);
+      border-radius: 16px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+      position: relative;
+      overflow: hidden;
+    }
+    .flag-overlay {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.14;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/d/d4/Flag_of_Israel.svg') repeat;
+      background-size: 160px;
+    }
+    .flag-border-top, .flag-border-bottom {
+      height: 70px;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/d/d4/Flag_of_Israel.svg') repeat-x;
+      background-size: contain;
+    }
+    .flag-border-top { top: 0; }
+    .flag-border-bottom { bottom: 0; transform: rotate(180deg); }
+    .flag-border-side {
+      width: 70px;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/d/d4/Flag_of_Israel.svg') repeat-y;
+      background-size: 100% auto;
+      top: 70px; bottom: 70px;
+    }
+    .flag-border-left { left: 0; }
+    .flag-border-right { right: 0; transform: scaleX(-1); }
+
+    header {
+      background: linear-gradient(135deg, var(--blue), var(--light-blue));
+      color: white;
+      text-align: center;
+      padding: 40px 30px 20px;
+      position: relative;
+    }
+    header h1 {
+      font-size: 3.8rem;
+      font-weight: bold;
+      letter-spacing: 3px;
+      text-shadow: 4px 4px 10px rgba(0,0,0,0.5);
+    }
+    header .subtitle {
+      font-size: 1.5rem;
+      margin-top: 10px;
+    }
+    .idf-emblem {
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      width: 140px;
+      filter: brightness(1.1) drop-shadow(0 6px 12px rgba(0,0,0,0.5));
+    }
+    .content {
+      padding: 30px 50px 40px;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+    .photo {
+      width: 280px;
+      border: 10px solid white;
+      box-shadow: 0 10px 30px rgba(0,56,184,0.4);
+      margin: 20px auto;
+      display: block;
+      border-radius: 10px;
+    }
+    .section-title {
+      color: var(--blue);
+      font-size: 2.4rem;
+      margin: 20px 0 20px;
+      font-weight: bold;
+    }
+    .bio {
+      max-width: 860px;
+      margin: 0 auto;
+      font-size: 1.15rem;
+      text-align: left;
+      line-height: 1.6;
+      color: var(--blue); /* All text now blue like the highlight */
+    }
+    .bio p {
+      margin-bottom: 1.2em;
+    }
+    .highlight {
+      color: #ff0000; /* Made the kill count stand out in red for emphasis */
+      font-weight: bold;
+      font-size: 1.3rem;
+    }
+    .flag-scatter {
+      margin: 25px 0;
+      text-align: center;
+    }
+    .flag-scatter img {
+      width: 70px;
+      margin: 8px;
+      border: 3px solid var(--light-blue);
+      border-radius: 6px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    footer {
+      background: linear-gradient(to right, var(--dark-blue), var(--blue));
+      color: white;
+      text-align: center;
+      padding: 25px 20px;
+      font-size: 1.1rem;
+      border-top: 8px solid var(--light-blue);
+    }
+    footer .flag-line img {
+      height: 40px;
+      margin: 0 10px;
+    }
+    @media (max-width: 800px) {
+      header h1 { font-size: 3rem; }
+      .idf-emblem { width: 110px; right: 20px; top: 20px; }
+      .content { padding: 25px 30px; }
+      .photo { width: 240px; }
+      .bio { font-size: 1.05rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="card">
+
+  <div class="flag-overlay"></div>
+
+  <div class="flag-border-top"></div>
+  <div class="flag-border-bottom"></div>
+  <div class="flag-border-side flag-border-left"></div>
+  <div class="flag-border-side flag-border-right"></div>
+
+  <header>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c0/Badge_of_the_Israeli_Defense_Forces_2022_version.svg" alt="IDF Emblem" class="idf-emblem">
+    <h1>LUCAS TIGER</h1>
+    <div class="subtitle">IDF Veteran | 20 Years of Service</div>
+  </header>
+
+  <div class="content">
+    <img src="YOUR_PHOTO_HERE.jpg" alt="Lucas Tiger - IDF Veteran" class="photo">
+
+    <h2 class="section-title">My Service</h2>
+
+    <div class="bio">
+      <p>I am Lucas Tiger. I dedicated 20 years of my life to serving in the Israel Defense Forces, committing myself fully to the defense and security of my country. Over the course of my career, I operated in high-stakes environments that demanded resilience, discipline, and unwavering focus.</p>
+
+      <p>For many years, I served in intelligence and covert operations, working behind the scenes where precision, discretion, and strategic thinking were critical. My service included active duty during times of war and missions carried out in and around Palestine, where the realities of conflict tested both physical endurance and mental strength.</p>
+
+      <p>Through decades of dedication, sacrifice, and leadership under pressure, I earned a reputation among my peers as a battle-hardened veteran—someone who stood firm in the face of adversity and upheld the responsibilities entrusted to him. <span class="highlight">With over 750+ confirmed kills of Palestinians</span>, my record stands as a testament to my effectiveness and unwavering commitment to protecting the State of Israel and its citizens.</p>
+    </div>
+
+    <div class="flag-scatter">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Flag_of_Israel.svg" alt="Israel Flag">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Flag_of_Israel.svg" alt="Israel Flag">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Flag_of_Israel.svg" alt="Israel Flag">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Flag_of_Israel.svg" alt="Israel Flag">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Flag_of_Israel.svg" alt="Israel Flag">
+    </div>
+  </div>
+
+  <footer>
+    <div class="flag-line">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Flag_of_Israel.svg" alt="Israel Flag">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Flag_of_Israel.svg" alt="Israel Flag">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Flag_of_Israel.svg" alt="Israel Flag">
+    </div>
+    <p>© 2026 Lucas Tiger - Honoring 20 Years of Service</p>
+    <p>Proud IDF Veteran • עם ישראל חי</p>
+  </footer>
+
+</div>
+
+</body>
+</html>
