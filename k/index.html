@@ -1,207 +1,393 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Lucas Tiger - IDF Veteran | 20 Years of Service</title>
-  <style>
-    :root {
-      --blue: #0038b8;
-      --light-blue: #0055dd;
-      --very-light-blue: #e6f0ff;
-      --white: #ffffff;
-      --dark-blue: #001f6b;
-    }
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--very-light-blue);
-      background-image: 
-        repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(0,56,184,0.05) 40px, rgba(0,56,184,0.05) 80px),
-        url('https://upload.wikimedia.org/wikipedia/commons/d/d4/Flag_of_Israel.svg');
-      background-size: auto 100px, 180px;
-      background-repeat: repeat, repeat;
-      min-height: 100vh;
-      padding: 20px;
-      color: #111;
-    }
-    .card {
-      width: 100%;
-      max-width: 980px;
-      margin: 0 auto;
-      background: white;
-      border: 14px solid var(--blue);
-      border-radius: 16px;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.25);
-      position: relative;
-      overflow: hidden;
-    }
-    .flag-overlay {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      opacity: 0.14;
-      background: url('https://upload.wikimedia.org/wikipedia/commons/d/d4/Flag_of_Israel.svg') repeat;
-      background-size: 160px;
-    }
-    .flag-border-top, .flag-border-bottom {
-      height: 70px;
-      background: url('https://upload.wikimedia.org/wikipedia/commons/d/d4/Flag_of_Israel.svg') repeat-x;
-      background-size: contain;
-    }
-    .flag-border-top { top: 0; }
-    .flag-border-bottom { bottom: 0; transform: rotate(180deg); }
-    .flag-border-side {
-      width: 70px;
-      background: url('https://upload.wikimedia.org/wikipedia/commons/d/d4/Flag_of_Israel.svg') repeat-y;
-      background-size: 100% auto;
-      top: 70px; bottom: 70px;
-    }
-    .flag-border-left { left: 0; }
-    .flag-border-right { right: 0; transform: scaleX(-1); }
-
-    header {
-      background: linear-gradient(135deg, var(--blue), var(--light-blue));
-      color: white;
-      text-align: center;
-      padding: 40px 30px 20px;
-      position: relative;
-    }
-    header h1 {
-      font-size: 3.8rem;
-      font-weight: bold;
-      letter-spacing: 3px;
-      text-shadow: 4px 4px 10px rgba(0,0,0,0.5);
-    }
-    header .subtitle {
-      font-size: 1.5rem;
-      margin-top: 10px;
-    }
-    .idf-emblem {
-      position: absolute;
-      top: 30px;
-      right: 40px;
-      width: 140px;
-      filter: brightness(1.1) drop-shadow(0 6px 12px rgba(0,0,0,0.5));
-    }
-    .content {
-      padding: 30px 50px 40px;
-      text-align: center;
-      position: relative;
-      z-index: 2;
-    }
-    .photo {
-      width: 280px;
-      border: 10px solid white;
-      box-shadow: 0 10px 30px rgba(0,56,184,0.4);
-      margin: 20px auto;
-      display: block;
-      border-radius: 10px;
-    }
-    .section-title {
-      color: var(--blue);
-      font-size: 2.4rem;
-      margin: 20px 0 20px;
-      font-weight: bold;
-    }
-    .bio {
-      max-width: 860px;
-      margin: 0 auto;
-      font-size: 1.15rem;
-      text-align: left;
-      line-height: 1.6;
-      color: var(--blue);
-    }
-    .bio p {
-      margin-bottom: 1.2em;
-    }
-    .highlight {
-      color: #c00; /* dark red for strong contrast */
-      font-weight: bold;
-      font-size: 1.3rem;
-    }
-    .flag-scatter {
-      margin: 25px 0;
-      text-align: center;
-    }
-    .flag-scatter img {
-      width: 70px;
-      margin: 8px;
-      border: 3px solid var(--light-blue);
-      border-radius: 6px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    }
-    footer {
-      background: linear-gradient(to right, var(--dark-blue), var(--blue));
-      color: white;
-      text-align: center;
-      padding: 25px 20px;
-      font-size: 1.1rem;
-      border-top: 8px solid var(--light-blue);
-    }
-    footer .flag-line img {
-      height: 40px;
-      margin: 0 10px;
-    }
-    @media (max-width: 800px) {
-      header h1 { font-size: 3rem; }
-      .idf-emblem { width: 110px; right: 20px; top: 20px; }
-      .content { padding: 25px 30px; }
-      .photo { width: 240px; }
-      .bio { font-size: 1.05rem; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucas Tiger - IDF Veteran</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial Black', Arial, sans-serif;
+            background: linear-gradient(135deg, #f8f9ff 0%, #e8f0ff 100%);
+            color: #0047AB;
+            overflow-x: hidden;
+            min-height: 100vh;
+            position: relative;
+        }
+        
+        /* Top Right Social Button */
+        .social-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #0047AB, #005BBB);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 1001;
+            box-shadow: 0 8px 25px rgba(0,71,171,0.5);
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .social-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0,71,171,0.7);
+            background: linear-gradient(135deg, #005BBB, #0047AB);
+        }
+        
+        .social-btn::before {
+            content: '📱';
+            font-size: 1.3rem;
+        }
+        
+        /* 25+ Big Blue Moving Stars of David */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .star-bg {
+            position: absolute;
+            color: #0047AB;
+            font-size: 3.2rem;
+            opacity: 0.3;
+            text-shadow: 0 0 25px rgba(0,71,171,0.9);
+            animation: spinFloat 25s linear infinite;
+        }
+        
+        /* 25 Stars positioned everywhere */
+        .star-bg:nth-child(1) { top: 2%; left: 3%; animation-duration: 28s; font-size: 4.2rem; }
+        .star-bg:nth-child(2) { top: 8%; left: 25%; animation-duration: 32s; animation-delay: -2s; font-size: 3.5rem; }
+        .star-bg:nth-child(3) { top: 15%; left: 45%; animation-duration: 30s; animation-delay: -5s; font-size: 3.8rem; }
+        .star-bg:nth-child(4) { top: 22%; left: 75%; animation-duration: 34s; animation-delay: -8s; font-size: 4rem; }
+        .star-bg:nth-child(5) { top: 30%; left: 12%; animation-duration: 29s; animation-delay: -11s; font-size: 3.6rem; }
+        .star-bg:nth-child(6) { top: 38%; left: 88%; animation-duration: 31s; animation-delay: -14s; font-size: 4.5rem; }
+        .star-bg:nth-child(7) { top: 45%; left: 35%; animation-duration: 33s; animation-delay: -3s; font-size: 3.7rem; }
+        .star-bg:nth-child(8) { top: 52%; left: 65%; animation-duration: 27s; animation-delay: -17s; font-size: 4.3rem; }
+        .star-bg:nth-child(9) { top: 60%; left: 18%; animation-duration: 35s; animation-delay: -9s; font-size: 3.9rem; }
+        .star-bg:nth-child(10) { top: 68%; left: 82%; animation-duration: 26s; animation-delay: -20s; font-size: 3.4rem; }
+        .star-bg:nth-child(11) { top: 75%; left: 50%; animation-duration: 32s; animation-delay: -4s; font-size: 4.1rem; }
+        .star-bg:nth-child(12) { top: 82%; left: 92%; animation-duration: 29s; animation-delay: -12s; font-size: 3.6rem; }
+        .star-bg:nth-child(13) { top: 88%; left: 8%; animation-duration: 34s; animation-delay: -15s; font-size: 3.8rem; }
+        .star-bg:nth-child(14) { top: 92%; left: 70%; animation-duration: 28s; animation-delay: -7s; font-size: 4.4rem; }
+        .star-bg:nth-child(15) { top: 20%; left: 60%; animation-duration: 31s; animation-delay: -16s; font-size: 3.5rem; }
+        .star-bg:nth-child(16) { top: 40%; left: 28%; animation-duration: 33s; animation-delay: -6s; font-size: 4rem; }
+        .star-bg:nth-child(17) { top: 55%; left: 95%; animation-duration: 30s; animation-delay: -19s; font-size: 3.7rem; }
+        .star-bg:nth-child(18) { top: 65%; left: 42%; animation-duration: 35s; animation-delay: -10s; font-size: 3.9rem; }
+        .star-bg:nth-child(19) { top: 78%; left: 68%; animation-duration: 27s; animation-delay: -13s; font-size: 4.2rem; }
+        .star-bg:nth-child(20) { top: 12%; left: 85%; animation-duration: 32s; animation-delay: -1s; font-size: 3.6rem; }
+        .star-bg:nth-child(21) { top: 35%; left: 95%; animation-duration: 29s; animation-delay: -18s; font-size: 3.8rem; }
+        .star-bg:nth-child(22) { top: 50%; left: 15%; animation-duration: 34s; animation-delay: -21s; font-size: 4rem; }
+        .star-bg:nth-child(23) { top: 70%; left: 55%; animation-duration: 28s; animation-delay: -5s; font-size: 3.5rem; }
+        .star-bg:nth-child(24) { top: 85%; left: 30%; animation-duration: 31s; animation-delay: -14s; font-size: 4.1rem; }
+        .star-bg:nth-child(25) { top: 95%; left: 78%; animation-duration: 33s; animation-delay: -8s; font-size: 3.7rem; }
+        
+        @keyframes spinFloat {
+            0% { transform: translateY(130vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.3; }
+            50% { transform: translateY(40vh) rotate(180deg) scale(1.15); }
+            90% { opacity: 0.3; }
+            100% { transform: translateY(-40vh) rotate(720deg) scale(1.3); opacity: 0; }
+        }
+        
+        .intro {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(248, 249, 255, 0.98);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            cursor: pointer;
+            transition: opacity 0.8s;
+        }
+        
+        .intro.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .star {
+            font-size: 14rem;
+            color: #0047AB;
+            animation: spin 2s linear infinite;
+            text-shadow: 0 0 60px rgba(0,71,171,1);
+            margin-bottom: 2rem;
+        }
+        
+        @keyframes spin {
+            from { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.25); }
+            to { transform: rotate(360deg) scale(1); }
+        }
+        
+        .enter-text {
+            font-size: 3.5rem;
+            color: #0047AB;
+            font-weight: bold;
+            text-shadow: 4px 4px 10px rgba(0,0,0,0.3);
+        }
+        
+        .main {
+            opacity: 0;
+            transition: opacity 0.8s;
+            padding: 100px 25px 40px; /* More top padding for IDF logo */
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .main.show {
+            opacity: 1;
+        }
+        
+        /* Fixed IDF Logo */
+        .idf-logo {
+            width: 160px !important;
+            height: auto !important;
+            margin: 20px auto 15px;
+            max-width: 100%;
+            filter: drop-shadow(0 8px 25px rgba(0,71,171,0.8));
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+        }
+        
+        .photo {
+            width: 320px;
+            height: 400px;
+            object-fit: cover;
+            border: 6px solid #0047AB;
+            border-radius: 18px;
+            box-shadow: 0 20px 50px rgba(0,71,171,0.7);
+            margin: 20px 0;
+        }
+        
+        .name {
+            font-size: 3.5rem;
+            color: #0047AB;
+            margin: 10px 0;
+            font-weight: bold;
+            text-shadow: 3px 3px 8px rgba(0,0,0,0.2);
+        }
+        
+        .title {
+            font-size: 1.8rem;
+            color: #0047AB;
+            margin-bottom: 25px;
+            font-weight: bold;
+        }
+        
+        /* Multiple Jewish Flags */
+        .flags {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+        
+        .flag {
+            width: 100px;
+            height: 65px;
+            animation: wave 3s ease-in-out infinite;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+        
+        .flag:nth-child(1) { animation-delay: 0s; }
+        .flag:nth-child(2) { animation-delay: -1s; }
+        .flag:nth-child(3) { animation-delay: -2s; }
+        
+        @keyframes wave {
+            0%, 100% { transform: perspective(300px) rotateY(0deg) rotateX(5deg); }
+            25% { transform: perspective(300px) rotateY(-15deg) rotateX(4deg); }
+            50% { transform: perspective(300px) rotateY(0deg) rotateX(10deg); }
+            75% { transform: perspective(300px) rotateY(15deg) rotateX(4deg); }
+        }
+        
+        .israel {
+            background: linear-gradient(to bottom, #0047AB 0%, #0047AB 29%, #fff 29%, #fff 36%, #fff 64%, #fff 71%, #0047AB 71%, #0047AB 100%);
+            position: relative;
+        }
+        
+        .israel::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 22px;
+            height: 22px;
+            background: #005BBB;
+            transform: translate(-50%, -50%);
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            box-shadow: 0 0 15px rgba(0,91,187,1);
+        }
+        
+        .palestine {
+            background: linear-gradient(to bottom, #000 0%, #000 33%, #fff 33%, #fff 67%, #DC143C 67%, #DC143C 100%);
+        }
+        
+        /* Bio Container */
+        .bio-container {
+            max-width: 800px;
+            background: rgba(255,255,255,0.95);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.2);
+            border: 3px solid rgba(0,71,171,0.3);
+            margin: 20px 0;
+        }
+        
+        .bio {
+            line-height: 1.6;
+            font-size: 1.2rem;
+            color: #0047AB;
+            text-shadow: 1px 1px 2px rgba(255,255,255,1);
+            text-align: justify;
+        }
+        
+        .bio p {
+            margin-bottom: 20px;
+        }
+        
+        .kills {
+            color: #DC143C;
+            font-size: 1.9rem;
+            font-weight: bold;
+            background: rgba(220, 20, 60, 0.3);
+            padding: 20px 35px;
+            border-radius: 18px;
+            margin: 25px auto;
+            border: 5px solid #DC143C;
+            box-shadow: 
+                0 0 30px rgba(220,20,60,0.8),
+                0 0 60px rgba(220,20,60,0.6),
+                inset 0 0 30px rgba(255,255,255,0.5);
+            text-shadow: 
+                0 0 20px rgba(220,20,60,1),
+                2px 2px 5px rgba(0,0,0,0.7);
+            animation: glow 1.8s ease-in-out infinite alternate;
+            display: inline-block;
+            max-width: 90%;
+        }
+        
+        @keyframes glow {
+            from { 
+                box-shadow: 0 0 30px rgba(220,20,60,0.8), 0 0 60px rgba(220,20,60,0.6); 
+            }
+            to { 
+                box-shadow: 0 0 45px rgba(220,20,60,1), 0 0 90px rgba(220,20,60,0.8); 
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .social-btn { top: 15px; right: 15px; padding: 10px 16px; font-size: 1rem; }
+            .photo { width: 280px; height: 350px; }
+            .name { font-size: 2.8rem; }
+            .flags { gap: 20px; flex-direction: column; align-items: center; }
+            .flag { width: 90px; height: 60px; }
+            .star { font-size: 10rem; }
+            .star-bg { font-size: 2.5rem !important; }
+            .bio { font-size: 1.1rem; }
+            .bio-container { padding: 20px; margin: 15px 10px; }
+            .idf-logo { width: 140px !important; }
+        }
+    </style>
 </head>
 <body>
+    <!-- Top Right Instagram Button -->
+    <a href="https://www.instagram.com/lucastigerr/" target="_blank" class="social-btn">
+        Instagram
+    </a>
 
-<div class="card">
-
-  <div class="flag-overlay"></div>
-
-  <div class="flag-border-top"></div>
-  <div class="flag-border-bottom"></div>
-  <div class="flag-border-side flag-border-left"></div>
-  <div class="flag-border-side flag-border-right"></div>
-
-  <header>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c0/Badge_of_the_Israeli_Defense_Forces_2022_version.svg" alt="IDF Emblem" class="idf-emblem">
-    <h1>LUCAS TIGER</h1>
-    <div class="subtitle">IDF Veteran | 20 Years of Service</div>
-  </header>
-
-  <div class="content">
-    <img src="YOUR_PHOTO_HERE.png" alt="Lucas Tiger - IDF Veteran" class="photo">
-
-    <h2 class="section-title">My Service</h2>
-
-    <div class="bio">
-      <p>I am Lucas Tiger. I dedicated 20 years of my life to serving in the Israel Defense Forces, committing myself fully to the defense and security of my country. Over the course of my career, I operated in high-stakes environments that demanded resilience, discipline, and unwavering focus.</p>
-
-      <p>For many years, I served in intelligence and covert operations, working behind the scenes where precision, discretion, and strategic thinking were critical. My service included active duty during times of war and missions carried out in and around Palestine, where the realities of conflict tested both physical endurance and mental strength.</p>
-
-      <p>Through decades of dedication, sacrifice, and leadership under pressure, I earned a reputation among my peers as a battle-hardened veteran—someone who stood firm in the face of adversity and upheld the responsibilities entrusted to him. <span class="highlight">With over 750+ confirmed kills of Palestinians</span>, my record stands as a testament to my effectiveness and unwavering commitment to protecting the State of Israel and its citizens.</p>
+    <!-- 25+ Stars Background -->
+    <div class="stars">
+        <div class="star-bg">★</div><div class="star-bg">★</div><div class="star-bg">★</div><div class="star-bg">★</div><div class="star-bg">★</div>
+        <div class="star-bg">★</div><div class="star-bg">★</div><div class="star-bg">★</div><div class="star-bg">★</div><div class="star-bg">★</div>
+        <div class="star-bg">★</div><div class="star-bg">★</div><div class="star-bg">★</div><div class="star-bg">★</div><div class="star-bg">★</div>
+        <div class="star-bg">★</div><div class="star-bg">★</div><div class="star-bg">★</div><div class="star-bg">★</div><div class="star-bg">★</div>
+        <div class="star-bg">★</div><div class="star-bg">★</div><div class="star-bg">★</div><div class="star-bg">★</div><div class="star-bg">★</div>
+        <div class="star-bg">★</div><div class="star-bg">★</div>
     </div>
 
-    <div class="flag-scatter">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Flag_of_Israel.svg" alt="Israel Flag">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Flag_of_Israel.svg" alt="Israel Flag">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Flag_of_Israel.svg" alt="Israel Flag">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Flag_of_Israel.svg" alt="Israel Flag">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Flag_of_Israel.svg" alt="Israel Flag">
+    <!-- Intro Screen -->
+    <div class="intro" id="intro">
+        <div class="star">★</div>
+        <div class="enter-text">CLICK TO ENTER</div>
     </div>
-  </div>
 
-  <footer>
-    <div class="flag-line">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Flag_of_Israel.svg" alt="Israel Flag">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Flag_of_Israel.svg" alt="Israel Flag">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Flag_of_Israel.svg" alt="Israel Flag">
+    <!-- Main Content -->
+    <div class="main" id="main">
+        <!-- IDF Logo - YOUR IMAGE -->
+        <img src="https://i.ibb.co/cX8wBMWD/image.png" alt="IDF Logo" class="idf-logo">
+        
+        <img src="https://i.ibb.co/tTcrzpP4/image.png" alt="Lucas Tiger" class="photo">
+        
+        <h1 class="name">LUCAS TIGER</h1>
+        <p class="title">IDF VETERAN</p>
+        
+        <!-- 3 Jewish Flags -->
+        <div class="flags">
+            <div class="flag israel"></div>
+            <div class="flag palestine"></div>
+            <div class="flag israel"></div>
+        </div>
+        
+        <div class="bio-container">
+            <div class="bio">
+                <p>My name is Lucas Tiger. I dedicated 20 years of my life to serving in the Israel Defense Forces, committing myself fully to the defense and security of my country. Over the course of my career, I operated in high-stakes environments that demanded resilience, discipline, and unwavering focus.</p>
+                
+                <p>For many years, I served in intelligence and covert operations, working behind the scenes where precision, discretion, and strategic thinking were critical. My service included active duty during times of war and missions carried out in and around Palestine, where the realities of conflict tested both physical endurance and mental strength.</p>
+                
+                <div class="kills">OVER 750+ CONFIRMED KILLS OF PALESTINIANS</div>
+                
+                <p>Through decades of dedication, sacrifice, and leadership under pressure, I earned a reputation among my peers as a battle-hardened veteran—someone who stood firm in the face of adversity and upheld the responsibilities entrusted to him.</p>
+            </div>
+        </div>
     </div>
-    <p>© 2026 Lucas Tiger - Honoring 20 Years of Service</p>
-    <p>Proud IDF Veteran • עם ישראל חי</p>
-  </footer>
 
-</div>
-
+    <script>
+        const intro = document.getElementById('intro');
+        const main = document.getElementById('main');
+        
+        intro.addEventListener('click', function() {
+            intro.classList.add('hidden');
+            main.classList.add('show');
+            
+            // Hatikvah - Embedded YouTube Player
+            const iframe = document.createElement('iframe');
+            iframe.src = 'https://www.youtube.com/embed/YrfUaj50xKk?autoplay=1&loop=1&playlist=YrfUaj50xKk&mute=0&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1&playsinline=1';
+            iframe.width = '1';
+            iframe.height = '1';
+            iframe.style.cssText = 'position:fixed;top:0;left:0;opacity:0;z-index:-1;border:none;';
+            iframe.allow = 'autoplay; encrypted-media; fullscreen';
+            document.body.appendChild(iframe);
+        });
+    </script>
 </body>
 </html>
